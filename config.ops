@@ -1,0 +1,54 @@
+{
+    "Runtime": "node",
+    "NightlyBuild": true,
+    "Args": [
+      "/build/index.js"
+    ],
+    "Dirs": [
+      "./node_modules",
+      "./build"
+    ],
+    "Files": [
+      "package.json",
+      "package-lock.json"
+    ],
+    "RebootOnExit": true,
+    "NameServers": [
+      "169.254.169.253",
+      "8.8.8.8",
+      "8.8.4.4"
+    ],
+    "ManifestPassthrough": {
+      "ntp_servers": [
+        "0.us.pool.ntp.org:123",
+        "169.254.169.123"
+      ],
+      "syslog": {
+        "server": "192.168.1.11"
+      }
+    },
+    "CloudConfig": {
+      "ProjectID": "test-application",
+      "Flavor": "c6a.large",
+      "BucketName": "stage-unkiernels",
+      "Zone": "us-east-1",
+      "Tags": [
+        {
+          "key": "release_tag",
+          "value": "v1.0.0"
+        }
+      ]
+    },
+     "Klibs": [
+        "ntp",
+        "syslog"
+      ],
+    "RunConfig": {
+      "Verbose": true,
+      "Imagename": "test-application-stage-1686858038",
+      "InstanceName": "test-application-stage",
+      "Ports": [
+        "3000"
+      ]
+    }
+  }
